@@ -125,7 +125,7 @@ require ('layout/header.php');
                                           </div>
                                           <div class="modal-footer">
                                             
-                                            <a href="login.php" class="btn btn-default">Yes</a>
+                                            <a href="login_anggota.php" class="btn btn-default">Yes</a>
                                             <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
                                           </div>
                                         </div>
