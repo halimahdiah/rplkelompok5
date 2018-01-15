@@ -34,7 +34,7 @@
                                                 <!-- Modal -->
                                                 
                                                   <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
+                                                    <div class="modal-content" align="center">
                                                       <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                           <span aria-hidden="true">&times;</span>
@@ -48,17 +48,6 @@
                                                       <h4><i><?= $Author ?></i></h4>
                                                       <div class="table-responsive">
                                                         <table class="table table-striped">
-                                                        <!-- 
-                                                            <tr>
-                                                                
-                                                            </tr>
-
-                                                            <tr>
-                                                                
-                                                            </tr>
-                                                            <tr>
-                                                                
-                                                            </tr> -->
                                                             <tr align="left">
                                                                 <td>Penerbit:</td>
                                                                 <td><?= $Publisher ?></td>

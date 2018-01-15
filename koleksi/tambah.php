@@ -1,151 +1,210 @@
+
 <?php
   $head = 'Tambah Koleksi';
   $header = 'Tambah Koleksi';
-  require('../layout/header.php');
+  // require('../layout/header.php');
   //require ('../layout/nav.php');
+
+
+
 ?>
 
-  <?php if (isset($_SESSION['succes'])): ?>
-    <div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4><strong>Sukses !</strong></h4><?= $_SESSION['succes'] ?>
-  </div>
-  <?php endif; ?>
-  <?php unset($_SESSION['succes']) ?>
-
-  <?php if (isset($_SESSION['error'])): ?>
-    <div class="alert alert-danger alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4><strong>Gagal !</strong></h4><?= $_SESSION['error'] ?>
-  </div>  
-  <?php endif; ?>
-  <?php unset($_SESSION['error']) ?>
-
-<div class="content-wrapper">
-        <div class="container">
-              <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-head-line">Tambah Koleksi</h1>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                    ID dan Password 
-                            </div>
-                            <div class="panel-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>ID Anggota</label>
-                                        <input type="text" class="form-control" name="username" disabled value="<?php echo $kode_otomatis ?>" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" placeholder="Enter Password" name="password" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Konfirmasi Password</label>
-                                        <input type="password" class="form-control" placeholder="Enter Password Lagi" name="passwordkonfirmasi" />
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading">
-                                    Data Diri Anda 
-                            </div>
-                            <div class="panel-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" placeholder="Enter Nama Lengkap" name="name" />
-                                    </div>
-                                    <div class="form-inline">
-                                        <label style="display: block">Jenis Kelamin</label>
-                                            <div class="row col-md-2">
-                                                <input type="radio" name="jk" id="optionsRadios2" value="laki-laki" checked />
-                                                Laki-laki
-                                            </div>
-                                            <!-- <div class="row col-md-2"> -->
-                                                <input type="radio" name="jk" id="optionsRadios2" value="perempuan" />
-                                                Perempuan
-                                            <!-- </div> -->
-                                    </div>
-                                    <div class="form-inline">
-                                        <label style="display: block">Tempat Tanggal Lahir</label>
-                                        <input type="text" class="form-control" name="tempat-lahir" placeholder="Tempat Lahir" />
-                                        <input type="date" class="form-control" name="tgl-lahir" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <input type="text" class="form-control" name="alamat" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" name="email" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>No. Telepon / Handphone</label>
-                                        <input type="text" class="form-control" name="telepon" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pekerjaan</label>
-                                        <input type="text" class="form-control" name="pekerjaan" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Foto User</label>
-                                        <input type="file"/>
-                                    </div>
-                                    <!-- <button type="submit" class="btn btn-info">Submit</button> -->
-                                    <a href="login_anggota.php" class="btn btn-info">Submit</a>
-                                    
-
-                                    <!--  Modals-->
+<script>
+            function tampilkanPreview(gambar,idpreview){
+//                membuat objek gambar
+                var gb = gambar.files;
+                
+//                loop untuk merender gambar
+                for (var i = 0; i < gb.length; i++){
+//                    bikin variabel
+                    var gbPreview = gb[i];
+                    var imageType = /image.*/;
+                    var preview=document.getElementById(idpreview);            
+                    var reader = new FileReader();
                     
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                      Cancel
-                                    </button>
+                    if (gbPreview.type.match(imageType)) {
+//                        jika tipe data sesuai
+                        preview.file = gbPreview;
+                        reader.onload = (function(element) { 
+                            return function(e) { 
+                                element.src = e.target.result; 
+                            }; 
+                        })(preview);
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog modal-sm" role="document">
-                                        <div class="modal-content">
-                                          <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-                                            
-                                          </div>
-                                          <div class="modal-body">
-                                            Anda yakin ingin membatalkan pendaftaran?
-                                          </div>
-                                          <div class="modal-footer">
-                                            
-                                            <a href="login_anggota.php" class="btn btn-default">Yes</a>
-                                            <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>                     
-                                    <!-- End Modals-->                
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    //                    membaca data URL gambar
+                        reader.readAsDataURL(gbPreview);
+                    }else{
+//                        jika tipe data tidak sesuai
+                        alert("Type file tidak sesuai. Khusus image.");
+                    }
+                   
+                }    
+            }
+        </script>
+<script type="text/javascript">
+    function pilih_lokasi(dom,Location) {
+    document.getElementById(dom).innerHTML="Loading ...";
+    var xmlhttp=GetXmlHttpObject();
+    if (xmlhttp==null) {
+        alert ("Your browser does not support AJAX!");
+        return;
+    }
+    // var date=new Date();
+    // var timestamp=date.getTime();
+    //alamat url script pemroses, sesuaikan dengan alamat url yang ada pada komputer anda
+    var url="http://localhost/rplkelompok5/koleksi/option_lokasi.php";
+
+
+
+    //menyusun variabel yang akan dikirimkan dengan AJAX
+    var param="Location="+Location;
+    
+    //tidak perlu dirubah
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState==4 || xmlhttp.readyState=="complete") {
+            var res=xmlhttp.responseText;
+            document.getElementById(dom).innerHTML=res;
+        }
+    }
+    xmlhttp.open("POST",url,true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader("Content-length", param.length);
+    xmlhttp.setRequestHeader("Connection", "close");
+    xmlhttp.send(param);
+    //tidak perlu dirubah
+}
+
+
+function GetXmlHttpObject() {
+    var xmlhttp=null;
+    try {
+        // Firefox, Opera 8.0+, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    catch (e) {
+        // Internet Explorer
+        try {
+            xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e) {
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlhttp;
+}
+    </script>
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header" align="center">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h5 class="modal-title" id="exampleModal">Tambah Koleksi</h5>
         </div>
-    </div>
+        <div class="modal-body">
+        <div id="dom_pesan"></div>
+        <form method="post" action="simpan.php" enctype="multipart/form-data">
 
-<!--   <form method="post" action="simpan.php">
-    <div class="form-group">
-        <label>ID Buku</label>
-        <input type="text" class="form-control" name="username" disabled value="<?php echo $kode_otomatis ?>" />
-    </div>
-  </form> -->
+      <div class="row">
+      <div class="col-md-3">ID Buku</div>
+      <div class="col-md-9"><input type="text" name="Book_id" class="form-control"></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Judul Buku</div>
+      <div class="col-md-9"><input type="text" name="Title" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Pengarang</div>
+      <div class="col-md-9"><input type="text" name="Author" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Penerbit</div>
+      <div class="col-md-9"><input type="text" name="Publisher" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Tahun Terbit</div>
+      <div class="col-md-9"><input type="text" name="Tahun_terbit" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Tipe Buku</div>
+      <div class="col-md-9">
+      <select class="form-control" name="Type" onchange="pilih_lokasi('dom_Location',this.value);">
+      <option value="#">Choose...</option>
+      
+        <option value="Umum">Umum</option>
+        <option value="Filsafat">Filsafat</option>
+        <option value="Agama">Agama</option>
+        <option value="Sosial">Sosial</option>
+        <option value="Bahasa">Bahasa</option>
+        <option value="Ilmu Murni">Ilmu Murni</option>
+        <option value="Ilmu Terapan">Ilmu Terapan</option>
+        <option value="Kesenian">Kesenian</option>
+        <option value="Kesusasteraan">Kesusasteraan</option>
+        <option value="Ilmu Bumi">Ilmu Bumi</option>
+    </select>
+      </div>
+      </div>
+      
+    
+      <div class="row">
+      <div class="col-md-3">Total Halaman</div>
+      <div class="col-md-9"><input type="text" name="Total_page" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">ISBN</div>
+      <div class="col-md-9"><input type="text" name="ISBN" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Jumlah Buku</div>
+      <div class="col-md-9"><input type="text" name="Jumlah_copy" class="form-control" value=""></div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Lokasi Buku</div>
+      <div class="col-md-9">
+      <select class="form-control" name="Location" id="dom_Location">
+          <option value="#">Choose...</option>
+      </select>
+      
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Status Buku</div>
+      <div class="col-md-9">
+      <select class="form-control" name="Status">
+      <option value="#">Choose...</option>
+      <option value="Available">Available</option>
+      <option value="Not Available">Not Available</option>
+      </select>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-md-3">Photo</div>
+      <div class="col-md-9">
+        <input type="file" name="file" accept="image/*" onchange="tampilkanPreview(this,'preview')">
+        <img id="preview" src="" width="30%"> <br>
+      </div>
+      </div>
+      
+      
+      <div align="right" style="margin-top: 15px">
+      
+      <div class="modal-footer">
+        <button onclick="return konfirmasiTambah()" type="submit" class="btn btn-info" >Tambah</button>
+      </div>
+      
+          <script type="text/javascript" language="JavaScript">
+          function konfirmasiTambah()
+          {
+          tanya = confirm("Anda Yakin Sudah Memasukkan Data yang Benar ?");
+          if (tanya == true) return true;
+          else return false;
+          }
+          </script>
+      <!-- <a onclick="return konfirmasi()" href="delete.php?Book_id=<?= $koleksi->Book_id ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a> -->
+      </div>
+  
+</form>
+</div>
 
-<?php require ('../layout/footer.php'); ?>
+
+                                                    </div>
+                                                  </div>

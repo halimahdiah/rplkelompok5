@@ -66,8 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // }
     else if ($e->errorInfo[1] == 1366) { 
        session_start();
-       $_SESSION['error'] = 'Data id harus angka.';
+       $_SESSION['error'] = 'Data tahun, total halaman, dan jumlah buku harus angka.';
        header('Location: index.php');
+       
     }
   }
 }

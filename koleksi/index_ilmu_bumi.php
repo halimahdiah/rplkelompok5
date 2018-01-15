@@ -6,8 +6,8 @@ try {
   die($e->getMessage());
 }
 
-$query = $koneksi->prepare('SELECT * FROM book');
-
+// $query = $koneksi->prepare('SELECT * FROM book');
+$query = $koneksi->prepare('SELECT * FROM book where Type = "Ilmu Bumi"');
 
 $query->execute();
 
