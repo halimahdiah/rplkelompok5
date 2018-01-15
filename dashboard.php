@@ -15,7 +15,7 @@ require ('layout/header.php');
                             <li><a class="menu-top-active" href="dashboard.php">Dashboard</a></li>
                             <li><a data-toggle="dropdown" class="dropdown-toggle">Koleksi <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Semua Koleksi</a></li>
+                                    <li><a href="http:/rplkelompok5/koleksi/index.php">Semua Koleksi</a></li>
                                     <li><a href="#">Umum</a></li>
                                     <li><a href="#">Filsafat</a></li>
                                     <li><a href="#">Agama</a></li>                                                
@@ -31,7 +31,7 @@ require ('layout/header.php');
                             <li><a href="login.php">Keanggotaan</a></li>
                             <li><a data-toggle="dropdown" class="dropdown-toggle">Sirkulasi <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Peminjaman</a></li>
+                                    <li><a href="http://localhost/rplkelompok5/peminjaman/index.php">Peminjaman</a></li>
                                     <li><a href="#">Pengembalian</a></li>
                                 </ul>
                             </li>
@@ -59,7 +59,7 @@ require ('layout/header.php');
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="s-widget-icon"><i class="fa fa-bookmark"></i></div>
-                        <div class="s-widget-value">15</div>
+                        <div class="s-widget-value">20</div>
                         <div class="s-widget-title">Total Koleksi</div>
                     </div>
                 </div>
@@ -67,9 +67,9 @@ require ('layout/header.php');
             <div class="col-md-3 ">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="s-widget-icon"><i class="fa fa-barcode"></i></div>
-                        <div class="s-widget-value">10</div>
-                        <div class="s-widget-title">Total Item</div>
+                        <div class="s-widget-icon"><i class="fa fa-book"></i></div>
+                        <div class="s-widget-value">100</div>
+                        <div class="s-widget-title">Total Item / Buku</div>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ require ('layout/header.php');
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="s-widget-icon"><i class="fa fa-archive"></i></div>
-                        <div class="s-widget-value">1</div>
+                        <div class="s-widget-value">0</div>
                         <div class="s-widget-title">Total Dipinjam</div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ require ('layout/header.php');
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="s-widget-icon"><i class="fa fa-check"></i></div>
-                        <div class="s-widget-value">9</div>
+                        <div class="s-widget-value">100</div>
                         <div class="s-widget-title">Tersedia</div>
                     </div>
                 </div>
@@ -113,8 +113,8 @@ require ('layout/header.php');
                                         <tr>
                                             <td>1</td>
                                             <td><span class="glyphicon glyphicon-user" style="font-size: 100%;"></span></td>
-                                            <td>A0003</td>
-                                            <td>Mark Otto</td>
+                                            <td>A3</td>
+                                            <td>Raka Saputra</td>
                                             <td>2017-12-01</td>
                                             <td>10:03:21</td>
 
@@ -122,8 +122,8 @@ require ('layout/header.php');
                                         <tr>
                                             <td>2</td>
                                             <td><span class="glyphicon glyphicon-user" style="font-size: 100%;"></span></td>
-                                            <td>A0006</td>
-                                            <td>Jacob Thornton</td>
+                                            <td>A6</td>
+                                            <td>Asika Damayanti</td>
                                             <td>2017-12-01</td>
                                             <td>07:24:23</td>
                                             
@@ -131,8 +131,8 @@ require ('layout/header.php');
                                         <tr>
                                             <td>3</td>
                                             <td><span class="glyphicon glyphicon-user" style="font-size: 100%;"></span></td>
-                                            <td>A0010</td>
-                                            <td>Larry the Bird</td>
+                                            <td>A10</td>
+                                            <td>Nor Zakiyah</td>
                                             <td>2017-12-01</td>
                                             <td>07:27:06</td>
                                         </tr>

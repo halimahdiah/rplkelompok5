@@ -11,7 +11,7 @@ require ('layout/header.php');
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a class="menu-top-active" href="home.php">Home</a></li>
+                            <li><a class="menu-top-active" href="http:/rplkelompok5/home.php">Home</a></li>
                              
                             <li><a data-toggle="dropdown" class="dropdown-toggle">Koleksi <span class="caret"></span></a>
                             <!-- <li> -->
@@ -19,7 +19,7 @@ require ('layout/header.php');
 											  <!-- <div class="btn btn-primary dropdown-toggle"><span class="caret"></span></div> -->
 											  
 											  <ul class="dropdown-menu">
-											  	<li><a href="#">Semua Koleksi</a></li>
+											  	<li><a href="http://localhost/rplkelompok5/koleksi/index.php">Semua Koleksi</a></li>
 												<li><a href="#">Umum</a></li>
 												<li><a href="#">Filsafat</a></li>
 												<li><a href="#">Agama</a></li>
@@ -50,15 +50,17 @@ require ('layout/header.php');
             </div>
         </div>
         <div class="row">
-        <div class="col-xs-12">
-        	<div class="input-group input-group-lg">
-        		
-        		<input type="text" class="form-control" placeholder="Search for..." name="keyword"/>
-	        	<span class="input-group-btn">
-	        	<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Search</button>
-	        	</span>
-        	</div>
-        	</div>
+            <div class="col-xs-12">
+                <form>
+                	<div class="input-group input-group-lg">
+                		
+                		<input type="text" class="form-control" placeholder="Search for..." name="keyword"/>
+        	        	<span class="input-group-btn">
+        	        	<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Search</button>
+        	        	</span>
+                	</div>
+                </form>
+            </div>
         </div>
         <hr>
         <div class="row">
