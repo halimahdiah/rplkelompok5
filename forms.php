@@ -1,4 +1,44 @@
-﻿<?php
+﻿<?php 
+    $Host = "localhost";
+    $username = "root";
+    $password = "1998";
+    $database = "siperpustakaan";
+    $koneksi = mysqli_connect($Host, $username, $password, $database );
+    
+    if (!$koneksi){
+        die ("CONECTION GAGAL :". mysqli_connect_error());
+    }
+
+      $carikode = mysqli_query($koneksi, "SELECT max(username) from anggota") or die (mysqli_error());
+      
+      $datakode = mysqli_fetch_array($carikode);
+
+      if ($datakode) {
+       $nilaikode = substr($datakode[0], 1);
+       
+       $kode = (int) $nilaikode;
+       
+       $kode = $kode + 1;
+       $kode_otomatis = "A".str_pad($kode, 5, "0", STR_PAD_LEFT);
+      
+      } else {
+      
+       $kode_otomatis = "A00001";
+      
+      }
+// if (isset($_POST["cek"])) {
+//         $username = $_POST["username"];
+//         $nama = $_POST["nama"];
+//         //$harga = $_POST["harga"];
+
+//         $sql = mysqli_query($koneksi, "INSERT INTO anggota VALUES('$no','$nama_barang','$harga')");
+//         header ("location:forms.php");
+//     }
+
+    //$gg = mysqli_query($koneksi, "SELECT * FROM barang");
+?>
+
+<?php
 $head = 'Form Pendaftaran';
 $header = 'Selamat Datang';
 require ('layout/header.php');
@@ -36,13 +76,13 @@ require ('layout/header.php');
                     <div class="col-md-12">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
-                                    Email dan Password 
+                                    ID dan Password 
                             </div>
                             <div class="panel-body">
                                 <form>
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" placeholder="Enter Email Address" name="email" />
+                                        <label>ID Anggota</label>
+                                        <input type="text" class="form-control" name="username" disabled value="<?php echo $kode_otomatis ?>" />
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
@@ -50,7 +90,7 @@ require ('layout/header.php');
                                     </div>
                                     <div class="form-group">
                                         <label>Konfirmasi Password</label>
-                                        <input type="password" class="form-control" placeholder="Enter Password Lagi" name="password" />
+                                        <input type="password" class="form-control" placeholder="Enter Password Lagi" name="passwordkonfirmasi" />
                                     </div>
                                 </form>
                             </div>
@@ -65,7 +105,7 @@ require ('layout/header.php');
                                 <form>
                                     <div class="form-group">
                                         <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" placeholder="Enter Nama Lengkap" name="nama" />
+                                        <input type="text" class="form-control" placeholder="Enter Nama Lengkap" name="name" />
                                     </div>
                                     <div class="form-inline">
                                         <label style="display: block">Jenis Kelamin</label>
@@ -86,6 +126,10 @@ require ('layout/header.php');
                                     <div class="form-group">
                                         <label>Alamat</label>
                                         <input type="text" class="form-control" name="alamat" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" name="email" />
                                     </div>
                                     <div class="form-group">
                                         <label>No. Telepon / Handphone</label>
@@ -115,10 +159,11 @@ require ('layout/header.php');
                                       <div class="modal-dialog modal-sm" role="document">
                                         <div class="modal-content">
                                           <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
                                             </button>
+                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                            
                                           </div>
                                           <div class="modal-body">
                                             Anda yakin ingin membatalkan pendaftaran?
